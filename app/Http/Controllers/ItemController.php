@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\JsonResponse;
 use App\Models\Item as ItemModel;
 use App\Http\Resources\ItemResource;
 use App\Http\Requests\ItemStoreRequest;
@@ -63,13 +64,15 @@ class ItemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy(int $id): JsonResponse
     {
-        //
+        $item = ItemModel::findOrFail($id);
+
+        return response()->json([
+            'message' => ($item->delete() ? 'success' : 'error')
+        ]);
     }
 }
