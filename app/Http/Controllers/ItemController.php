@@ -11,7 +11,7 @@ use App\Http\Requests\ItemStoreRequest;
 class ItemController extends Controller
 {
     /**
-     * @const INT
+     * @const int
      */
     private const ITEMS_PER_PAGE = 5;
 
@@ -40,14 +40,14 @@ class ItemController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return ItemResource
      */
-    public function show($id)
+    public function show(int $id): ItemResource
     {
-        //
+        return new ItemResource(
+            ItemModel::findOrFail($id)
+        );
     }
 
     /**
