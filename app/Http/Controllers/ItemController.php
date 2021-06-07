@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Carbon;
 use App\Models\Item as ItemModel;
 use App\Http\Resources\ItemResource;
 use App\Http\Requests\ItemStoreRequest;
+use App\Http\Requests\ItemUpdateRequest;
 
 class ItemController extends Controller
 {
@@ -52,15 +54,21 @@ class ItemController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param ItemUpdateRequest $request
+     * @param int $id
+     * @return ItemResource
      */
-    public function update(Request $request, $id)
+    public function update(ItemUpdateRequest $request, int $id): ItemResource
     {
-        //
+        $item = ItemModel::findOrFail($id);
+
+        if ($request->hasItemCompleted()) {
+            $item->completed = true;
+            $item->completed_at = Carbon::now();
+            $item->save();
+        }
+
+        return new ItemResource($item);
     }
 
     /**
