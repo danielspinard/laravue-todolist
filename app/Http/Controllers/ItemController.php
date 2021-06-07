@@ -9,13 +9,20 @@ use App\Models\Item as ItemModel;
 
 class ItemController extends Controller
 {
+    /**
+     * @const INT
+     */
+    private const ITEMS_PER_PAGE = 5;
 
     /**
      * @return AnonymousResourceCollection
      */
     public function index(): AnonymousResourceCollection
     {
-        $items = ItemModel::orderBy('created_at', 'DESC')->paginate(5);
+        $items = ItemModel::orderBy('created_at', 'DESC')->paginate(
+            ItemController::ITEMS_PER_PAGE
+        );
+    
         return ItemResource::collection($items);
     }
 
