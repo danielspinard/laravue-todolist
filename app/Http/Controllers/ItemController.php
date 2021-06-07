@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use App\Http\Resources\ItemResource;
+use App\Models\Item as ItemModel;
 
 class ItemController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        //
+        $items = ItemModel::orderBy('created_at', 'DESC')->paginate(5);
+        return ItemResource::collection($items);
     }
 
     /**
