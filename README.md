@@ -13,6 +13,9 @@
 
 My goal is to demonstrate my knowledge of laravel and learn about another amazing framework that is vue.js, let both work in harmony.
 
+## Project Preview
+This may be an outdated preview and may not represent a final version. (GIF preview coming soon)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects
@@ -34,8 +37,12 @@ The ease of vue.js is amazing, you can check all this by studying with the offic
 
 Open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Developers
+## Author
 
-Daniel Monteiro - [@danielspinard](https://github.com/danielspinard) <br>
+Daniel Monteiro - [@danielspinard](https://github.com/danielspinard)
+
+## Contributors
+
+João Thomaz - [@JoaoThomazz](https://github.com/JoaoThomazz) <br>
+
 Hans Kinkelaar - [@HansKinkelaar](https://github.com/HansKinkelaar)
-
