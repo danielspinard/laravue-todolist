@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use App\Http\Resources\ItemResource;
 use App\Models\Item as ItemModel;
+use App\Http\Resources\ItemResource;
+use App\Http\Requests\ItemStoreRequest;
 
 class ItemController extends Controller
 {
@@ -27,14 +28,15 @@ class ItemController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ItemStoreRequest $request
+     * @return ItemResource
      */
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request): ItemResource
     {
-        //
+        $store = new ItemModel($request->item);
+        $store->save();
+    
+        return new ItemResource($store);
     }
 
     /**
