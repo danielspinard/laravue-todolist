@@ -20,7 +20,21 @@ class ItemUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'completed' => 'required|boolean'
+            'completed' => 'boolean'
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasItemCompleted(): bool
+    {
+        $item = (object) $this->item;
+        
+        if (isset($item->completed) && $item->completed === 'true') {
+            return true;
+        }
+
+        return false;
     }
 }
