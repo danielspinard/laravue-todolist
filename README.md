@@ -6,7 +6,6 @@
     <a href="https://www.codefactor.io/repository/github/danielspinard/laravue-todolist">
         <img src="https://www.codefactor.io/repository/github/danielspinard/laravue-todolist/badge" alt="codefactor laravue-todolist">
     </a>
-
 </p>
 
 ## Why the Project?
@@ -14,7 +13,11 @@
 My goal is to demonstrate my knowledge of laravel and learn about another amazing framework that is vue.js, let both work in harmony.
 
 ## Project Preview
-This may be an outdated preview and may not represent a final version. (GIF preview coming soon)
+This may be an outdated preview and may not represent a final version.
+<p align="center">
+    <img src="./.github/assets/preview.jpg">
+</p>
+
 
 ## About Laravel
 
