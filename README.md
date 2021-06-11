@@ -40,12 +40,10 @@ The ease of vue.js is amazing, you can check all this by studying with the offic
 
 Open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Author
+## Developer
 
 Daniel Monteiro - [@danielspinard](https://github.com/danielspinard)
 
-## Contributors
+## Design Ui/Ux
 
 João Thomaz - [@JoaoThomazz](https://github.com/JoaoThomazz) <br>
-
-Hans Kinkelaar - [@HansKinkelaar](https://github.com/HansKinkelaar)
