@@ -61,12 +61,11 @@ class ItemController extends Controller
     public function update(ItemUpdateRequest $request, int $id): ItemResource
     {
         $item = ItemModel::findOrFail($id);
+        $completed = $request->hasItemCompleted();
 
-        if ($request->hasItemCompleted()) {
-            $item->completed = true;
-            $item->completed_at = Carbon::now();
-            $item->save();
-        }
+        $item->completed = ($completed ? 1 : 0);
+        $item->completed_at = ($completed ? Carbon::now() : null);
+        $item->save();
 
         return new ItemResource($item);
     }
