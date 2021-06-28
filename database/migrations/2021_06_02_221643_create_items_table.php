@@ -7,11 +7,9 @@ use Illuminate\Support\Facades\Schema;
 class CreateItemsTable extends Migration
 {
     /**
-     * Run the migrations.
-     *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
@@ -23,11 +21,9 @@ class CreateItemsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('items');
     }
